@@ -1,0 +1,27 @@
+version: '3'
+services:
+  # TBC
+  #app: WIP
+  #  image: 
+  #  command: ["npm", "run" "tart:prod"]
+  #  ports:
+  #    - 1235:3000
+  #  networks:
+  #    - redis-net
+  #  depends_on:
+  #    - redis
+
+  redis:
+    image: redis:latest
+    command: ["redis-server", "--appendonly", "yes"]
+    hostname: redis
+    networks:
+      - redis-net
+    volumes:
+      - redis-data:/data
+
+networks:
+  redis-net:
+
+volumes:
+  redis-data:
